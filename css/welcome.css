@@ -41,6 +41,18 @@ a{
     text-decoration: none;
     color: var(--primary-color);
 }
+.rezervace{
+    color: var(--primary-color);
+    font-size: var(--font-size-medium);
+}
+
+.rezervace >h1{
+    text-align: center;
+}
+.rezervace > form{
+    
+}
+
 section{
     display: flex;
     justify-content: center;

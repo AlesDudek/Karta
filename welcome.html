@@ -14,6 +14,16 @@
     </header>
     <nav>
         <a href="index.html">Home</a>
+        <div class="rezervace">
+            <h1>Rezervace</h1>
+            <form id="reservationForm">
+                <label for="name">Jméno a příjmení:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="time">Čas příchodu:</label>
+                <input type="datetime-local" id="time" name="time" required>
+                <button type="button" onclick="submitReservation()">Odeslat rezervaci</button>
+            </form>
+        </div>
         <div>
             <a href="#services">Služby</a>
             <a href="#prices">Ceník</a>
