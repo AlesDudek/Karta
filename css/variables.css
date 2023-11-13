@@ -1,4 +1,11 @@
 :root{
-    --primary-color:#00aeff;
-    --font-size-medium: 20px;
+    /* Home */
+    
+    /* welcome */
+    --primary-color:#3D973D;
+    --primary-background: #0F1110;
+    --primary-text-color:#F7F8F9;
+    --font-size-hard: 50px;
+    --font-size-medium: 25px;
+    --font-size-low: 15px;
 }

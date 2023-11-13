@@ -1,36 +1,194 @@
 @import url('https://fonts.googleapis.com/css2?family=KoHo:wght@400;500;600;700&display=swap');
 
 *{
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body{
-    background: #0F1110;
-    color: #F7F8F9;
+    margin: 0 auto;
+    background: var(--primary-background);
     font-family: 'KoHo', sans-serif;
     font-size: 50px;
-    width:1420px;
-    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F7F8F9;
-    height: 374px;
-    margin: 0 auto;
+    background-color: var(--primary-text-color);
+    height: 150px;
+    /* E2BB5A */
 }
 
+
+
 .logo{
-    
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    background-color: var(--primary-text-color);
 }
 nav{
     display: flex;
-
+    justify-content: space-between;
 }
 a{
     text-decoration: none;
-    color: #F7F8F9;
+    color: var(--primary-color);
+}
+section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.sectionAboutUs{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+}
+.sectionAboutUs > h1{
+    display: inline-block;
+    border-bottom: 1px solid var(--primary-color);
+}
+.sectionAboutUs > p{
+    margin-top: 30px;
+    font-size: 25px;
+    color: var(--primary-text-color);
+}
+/* Sluzby */
+.service{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.service > h2{
+    border-bottom: 1px solid var(--primary-color);
+    display: inline-block;
+}
+.service > .serviceBarbers{
+    margin-top: 50px;
+    display: flex;
+
+}
+
+.service > .serviceBarbers > .barberMan{
+    position: relative;
+    perspective: 1000px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    margin-left: 20px;
+    width: 500px;
+    text-align: center;
+}
+
+.service > .serviceBarbers > .barberMan > .barberOne {
+    background-color: aliceblue;
+    border-radius: 5px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotate(-2deg);
+}
+
+
+.service > .serviceBarbers > .barberMan > .barberOne > p{
+    font-size: var(--font-size-low);
+    padding: 10px;
+}
+.service > .serviceBarbers > .barberMan > .barberTwo {
+    background-color: aliceblue;
+    border-radius: 5px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotate(2deg);
+    margin-left: 230px;
+}
+.service > .serviceBarbers > .barberMan > .barberTwo > p{
+    font-size: var(--font-size-low);
+    padding: 10px;
+}
+
+.service > .serviceBarbers > .barberMan > .barberTwo {
+    margin-left: 10px;
+}
+/* cenik  */
+
+.price-section{
+    display: flex;
+    text-align: center;
+    margin-top: 50px;
+}
+.section-title{
+    border-bottom: 1px solid var(--primary-color);
+    display: inline-block;
+}
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.price-row {
+    border-bottom: 1px solid #ddd;
+}
+
+.price-category, .price-description, .price-amount {
+    padding: 10px;
+    text-align: left;
+
+}
+.price-description{
+    font-size: var(--font-size-medium);
+    width: 400px;
+    padding: 0 30px;
+}
+
+.price-category {
+    font-weight: bold;
+}
+
+/*mapy*/
+aside{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.google-map {
+    width: 400px;
+    height: 300px;
+    border: 0;
+    allowfullscreen: true;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+}
+/*scroll šipka*/
+#scrollUpArrow {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    background-color: #5AE25B;
+    color: var(--primary-text-color);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#scrollUpArrow:hover {
+    background-color: var(--primary-color); /* Barva při najetí myší */
 }

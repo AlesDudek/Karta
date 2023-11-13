@@ -10,28 +10,79 @@
 <body>
     <header>
         <img class="logo" src="/img/banerHead.png" alt="logo">
+        
     </header>
     <nav>
         <a href="index.html">Home</a>
         <div>
-            <a href="#">Služby</a>
-            <a href="#">Kontakt</a>
-            <a href="#"></a>
+            <a href="#services">Služby</a>
+            <a href="#prices">Ceník</a>
+            <a href="#google-maps">Kde nás Hledat</a>
         </div>
     </nav>
     <section>
-        <article>
-
+        <div class="sectionAboutUs">
+            <h1>O nás</h1>
+            <p>
+                V České republice se barbershopy těší větší popularitě!      Barbershopy nabízejí svým zákazníkům širokou škálu služeb, od  stříhání, holení až po styling vlasů a vousů.
+                Náš barbershop je koncipován tak, aby každému muži pomohl cítit se sebevědoměji, díky precizní péči o jeho zevnějšek, které se mu u nás dostane!
+            </p>
+        </div>
+        <article id="services" class="service">
+            <h2>Naši barbeři</h2>
+            <div class="serviceBarbers">
+                <div class="barberMan">
+                    <div class="barberOne" >
+                        <h5>Robert Podraný</h5>
+                        <img src="/img/robert.png" alt="fotka Roberta Podraného">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, dicta sunt? Reprehenderit architecto itaque recusandae iste accusamus quis perspiciatis necessitatibus, illo voluptate molestiae veritatis laudantium vel quia quod odit obcaecati!
+                        </p>
+                    </div>
+                </div>
+                <div class="barberMan">
+                    <div class="barberTwo" >
+                        <h5>Kolega Vasil</h5>
+                        <img src="/img/vasil.png" alt="Vasil">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, dicta sunt? Reprehenderit architecto itaque recusandae iste accusamus quis perspiciatis necessitatibus, illo voluptate molestiae veritatis laudantium vel quia quod odit obcaecati!
+                        </p>
+                    </div>
+                </div>
+            </div>
         </article>
-        <article>
-
+        <article id="prices" class="price-section">
+            <div class="price-container">
+                <h5 class="section-title">Ceník</h5>
+                <table class="price-table">
+                    <tr class="price-row">
+                        <td class="price-category">Vlasy</td>
+                        <td class="price-description">Lorem ipsum dolor.</td>
+                        <td class="price-amount">300,-</td>
+                    </tr>
+                    <tr class="price-row">
+                        <td class="price-category">Vousy</td>
+                        <td class="price-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi quidem fuga inventore qui, nobis ducimus labore explicabo enim est illo libero pariatur tenetur quo eligendi nulla quasi accusantium vero doloremque ad voluptatibus molestiae totam repudiandae! Corporis, in voluptatem blanditiis temporibus, ipsum autem ea eligendi reiciendis ullam, culpa tenetur quos magnam!</td>
+                        <td class="price-amount">300,-</td>
+                    </tr>
+                    <tr class="price-row">
+                        <td class="price-category">All in</td>
+                        <td class="price-description">Lorem ipsum dolor.</td>
+                        <td class="price-amount">800,-</td>
+                    </tr>
+                </table>
+            </div>
         </article>
     </section>
-    <aside>
-
+    <aside id="google-maps" >
+        <iframe class="google-map" allowfullscreen aria-hidden="false" tabindex="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.693654461929!2d14.10933141577825!3d50.144848779429856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bb76befb8e937%3A0x65eaca7305642bca!2sImperial%20Barber%20Kladno!5e0!3m2!1sen!2scz!4v1636795311451!5m2!1sen!2scz"></iframe>
     </aside>
     <footer>
 
     </footer>
+    <div id="scrollUpArrow">
+        &#9650;
+    </div>
+    <script src="/js/welcome.js"></script>
 </body>
 </html>
