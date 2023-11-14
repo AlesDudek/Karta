@@ -21,3 +21,24 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
+
+function submitReservation(){
+    const name = document.getElementById('name').value;
+    const time = document.getElementById('time').value;
+
+    fetch('http://localhost:3000/submit-reservation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, time }),
+    })
+    .then(response => response.json())
+    .then(data => {
+    alert(data.message);
+    })
+    .catch(error => {
+    console.error('Chyba:', error);
+    });
+}

@@ -16,12 +16,22 @@
         <a href="index.html">Home</a>
         <div class="rezervace">
             <h1>Rezervace</h1>
-            <form id="reservationForm">
-                <label for="name">Jméno a příjmení:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="time">Čas příchodu:</label>
-                <input type="datetime-local" id="time" name="time" required>
-                <button type="button" onclick="submitReservation()">Odeslat rezervaci</button>
+            <form id="reservationForm" class="reservationForms">
+                <div>
+                    <div>
+                        <label for="name">Jméno a příjmení:</label>
+                    </div>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <div>
+                        <label for="time">Čas příchodu:</label>
+                    </div>
+                    <input type="datetime-local" id="time" name="time" required>
+                </div>
+                <div>
+                    <button type="button" onclick="submitReservation()">Odeslat rezervaci</button>
+                </div>
             </form>
         </div>
         <div>
@@ -94,5 +104,6 @@
         &#9650;
     </div>
     <script src="/js/welcome.js"></script>
+    <script src="client.js"></script>
 </body>
 </html>
