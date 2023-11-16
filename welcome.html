@@ -8,13 +8,13 @@
     <title>Welcome</title>
 </head>
 <body>
+    <div class="background-image"></div>
     <header>
         <img class="logo" src="/img/banerHead.png" alt="logo">
-        
     </header>
     <nav>
         <a href="index.html">Home</a>
-        <div class="rezervace">
+        <!-- <div class="rezervace">
             <h1>Rezervace</h1>
             <form id="reservationForm" class="reservationForms">
                 <div>
@@ -33,22 +33,25 @@
                     <button type="button" onclick="submitReservation()">Odeslat rezervaci</button>
                 </div>
             </form>
-        </div>
+        </div> -->
         <div>
-            <a href="#services">Služby</a>
-            <a href="#prices">Ceník</a>
-            <a href="#google-maps">Kde nás Hledat</a>
+            <a href="#services" class="servis" >Služby</a>
+            <a href="#prices" class="price" >Ceník</a>
+            <a href="#google-maps" class="findUs" >Kde nás Hledat</a>
         </div>
     </nav>
     <section>
-        <div class="sectionAboutUs">
-            <h1>O nás</h1>
-            <p>
-                V České republice se barbershopy těší větší popularitě!      Barbershopy nabízejí svým zákazníkům širokou škálu služeb, od  stříhání, holení až po styling vlasů a vousů.
-                Náš barbershop je koncipován tak, aby každému muži pomohl cítit se sebevědoměji, díky precizní péči o jeho zevnějšek, které se mu u nás dostane!
-            </p>
+        <div class="stripes-conteiner">
+            <img src="/img/ikonaHead.png" alt="" class="ikonaHead">
+            <div class="sectionAboutUs">
+                <h1>O nás</h1>
+                <p>
+                    V České republice se barbershopy těší větší popularitě!      Barbershopy nabízejí svým zákazníkům širokou škálu služeb, od  stříhání, holení až po styling vlasů a vousů.
+                    Náš barbershop je koncipován tak, aby každému muži pomohl cítit se sebevědoměji, díky precizní péči o jeho zevnějšek, které se mu u nás dostane!
+                </p>
+            </div>
         </div>
-        <article id="services" class="service">
+        <article id="services" class="service stripes-conteiner">
             <h2>Naši barbeři</h2>
             <div class="serviceBarbers">
                 <div class="barberMan">
@@ -71,7 +74,7 @@
                 </div>
             </div>
         </article>
-        <article id="prices" class="price-section">
+        <article id="prices" class="price-section stripes-conteiner">
             <div class="price-container">
                 <h5 class="section-title">Ceník</h5>
                 <table class="price-table">
@@ -94,7 +97,7 @@
             </div>
         </article>
     </section>
-    <aside id="google-maps" >
+    <aside id="google-maps" class="stripes-conteiner">
         <iframe class="google-map" allowfullscreen aria-hidden="false" tabindex="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.693654461929!2d14.10933141577825!3d50.144848779429856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bb76befb8e937%3A0x65eaca7305642bca!2sImperial%20Barber%20Kladno!5e0!3m2!1sen!2scz!4v1636795311451!5m2!1sen!2scz"></iframe>
     </aside>
     <footer>

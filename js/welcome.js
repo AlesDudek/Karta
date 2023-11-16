@@ -42,3 +42,4 @@ function submitReservation(){
     console.error('Chyba:', error);
     });
 }
+
