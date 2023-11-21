@@ -20,26 +20,41 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+/***** wrapper po kliknuti *****/
 
+document.addEventListener('DOMContentLoaded', function () {
+    const showFormBtn = document.getElementById('showFormBtn');
+    const reservationForm = document.getElementById('reservationForm');
+    const submitReservationBtn = document.getElementById('submitReservationBtn');
+    const overlay = document.querySelector('.overlay');
+    const wrapper = document.querySelector('.wrapper');
 
+    showFormBtn.addEventListener('click', function (event) {
+        event.stopPropagation(); // Zabraňuje probublávání události až do kořenového elementu (body)
 
-function submitReservation(){
-    const name = document.getElementById('name').value;
-    const time = document.getElementById('time').value;
-
-    fetch('http://localhost:3000/submit-reservation', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, time }),
-    })
-    .then(response => response.json())
-    .then(data => {
-    alert(data.message);
-    })
-    .catch(error => {
-    console.error('Chyba:', error);
+        reservationForm.style.display = 'block';
+        showFormBtn.style.display = 'none';
+        overlay.style.display = 'flex';
+        wrapper.style.display = 'flex';
     });
-}
 
+    reservationForm.addEventListener('click', function (event) {
+        event.stopPropagation(); // Zabraňuje probublávání události až do kořenového elementu (body)
+    });
+
+    document.addEventListener('click', function () {
+        reservationForm.style.display = 'none';
+        showFormBtn.style.display = 'block';
+        overlay.style.display = 'none';
+        wrapper.style.display = 'none';
+    });
+
+    submitReservationBtn.addEventListener('click', function () {
+        // Zde můžete implementovat logiku pro odeslání rezervace na server nebo další akce
+        alert('Rezervace odeslána!');
+        reservationForm.style.display = 'none';
+        showFormBtn.style.display = 'block';
+        overlay.style.display = 'none';
+        wrapper.style.display = 'none';
+    });
+});
