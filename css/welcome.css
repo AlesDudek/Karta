@@ -426,7 +426,7 @@ a{
     pointer-events: none;
 }
 
-.event::after{
+.events::after{
     content: "✔";
     position: absolute;
     top: 50%;
@@ -440,7 +440,7 @@ a{
     transform: translateY(-50%);
 }
 
-.event:hover::after{
+.events:hover::after{
     display: flex;
 }
 
@@ -549,6 +549,39 @@ a{
     border: 1px solid var(--primary-clr);
 }
 
+.add-event-btn:hover{
+    color: var(--primary-clr);
+    background-color: transparent;
+}
+
+.add-event{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #878895;
+    border: 2px solid #878895;
+    opacity: 0.5;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.add-event:hover{
+    opacity: 1;
+}
+
+.add-event i{
+    pointer-events: none;
+}
+
+
+
 
 
 
@@ -557,14 +590,15 @@ a{
 .customer-info input {
     display: block;
     margin-bottom: 10px;
-} 
+}
 
- button {
+button {
     padding: 10px;
     background-color: #3498db;
     color: #fff;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 /*********************Konec************************/

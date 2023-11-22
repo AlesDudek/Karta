@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', function () {
     const showFormBtn = document.getElementById('showFormBtn');
     const reservationForm = document.getElementById('reservationForm');
-    const submitReservationBtn = document.getElementById('submitReservationBtn');
     const overlay = document.querySelector('.overlay');
     const wrapper = document.querySelector('.wrapper');
 
@@ -43,15 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.addEventListener('click', function () {
-        reservationForm.style.display = 'none';
-        showFormBtn.style.display = 'block';
-        overlay.style.display = 'none';
-        wrapper.style.display = 'none';
-    });
-
-    submitReservationBtn.addEventListener('click', function () {
-        // Zde můžete implementovat logiku pro odeslání rezervace na server nebo další akce
-        alert('Rezervace odeslána!');
         reservationForm.style.display = 'none';
         showFormBtn.style.display = 'block';
         overlay.style.display = 'none';
