@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 *{
     margin: 0;
@@ -10,7 +10,7 @@
 body{
     margin: 0 auto;
     /* background: var(--primary-background); */
-    font-family: 'KoHo', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 50px;
     height: 100vh;
     display: flex;
@@ -89,6 +89,7 @@ a{
     justify-content: center;
     align-items: center;
     z-index: 999;
+    overflow: scroll;
 }
 .wrapper {
     display: none;
@@ -98,7 +99,7 @@ a{
     z-index: 1000;
 }
 
-.reservation-form {
+/* .reservation-form {
     display: none;
     position: fixed;
     top: 50%;
@@ -108,12 +109,20 @@ a{
     color: var(--primary-text-color);
     padding: 20px;
     border-radius: 5px;
+} */
+/***pridano*/
+.calendar{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+/**/
 .container{
     position: relative;
     width: 1200px;
     min-height: 850px;
+    margin: 0 auto;
     padding: 5px;
     display: flex;
     border-radius: 10px;
@@ -410,7 +419,7 @@ a{
 
 .events .event .title i{
     color: var(--primary-clr);
-    font-size: 0.5rem;
+    font-size: 1.5rem;
 }
 
 .events .event:hover .title i,
@@ -427,7 +436,7 @@ a{
 }
 
 .events::after{
-    content: "✔";
+    content: "X";
     position: absolute;
     top: 50%;
     right: 0;
@@ -442,6 +451,17 @@ a{
 
 .events:hover::after{
     display: flex;
+}
+
+.events .no-event{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #878787;
 }
 
 .add-event-wrapper{
@@ -580,7 +600,61 @@ a{
     pointer-events: none;
 }
 
+/*responsivita*/
 
+@media(max-width: 1150px){
+    .calendar{
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-top: 200px;
+    }
+    .container{
+        min-height: 100vh;
+        flex-direction: column;
+        border-radius: 0;
+    }
+    .container .left,
+    .calendars .right{
+        width: 100%;
+        height: 100%;
+        padding: 20 0;
+    }
+    .calendars::before,
+    .calendars::after{
+        top: 100%;
+        left: 50%;
+        width: 97%;
+        height: 12px;
+        border-radius: 0 0 5px 5px;
+        transform: translateX(-50%);
+    }
+    .calendars::before{
+        width: 94%;
+        top: calc(100% + 12px);
+    }
+    .events{
+        padding-bottom: 340px;
+    }
+    .add-event-wrapper{
+        bottom: 100px;
+    }
+}
+@media(max-width: 500px){
+    .calendars .month{
+        height: 75px;
+    }
+    .calendars .days .day{
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    .calendars .days .day.active,
+    .calendars .days .day.today{
+        font-size: 1rem;
+    }
+    .right .today-date{
+        padding: 20px;
+    }
+}
 
 
 
@@ -594,11 +668,11 @@ a{
 
 button {
     padding: 10px;
-    background-color: #3498db;
-    color: #fff;
+    background-color: var(--primary-clr);
+    color: var(--primary-text-color);
     border: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 /*********************Konec************************/
@@ -623,7 +697,7 @@ section{
 .ikonaHead{
     position:absolute;
     left: 10%;
-    top: 45%;
+    top: 65%;
     border-radius: 50%;
     width: 200px;
     height: 200px;
@@ -754,7 +828,6 @@ aside{
     allowfullscreen: true;
     border-radius: 8px;
     margin-top: 30px;
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
 }
 /*scroll šipka*/
 #scrollUpArrow {
@@ -763,7 +836,7 @@ aside{
     bottom: 20px;
     right: 20px;
     font-size: 24px;
-    background-color: #5AE25B;
+    background-color: #8b7c7c;
     color: var(--primary-text-color);
     padding: 10px;
     cursor: pointer;
@@ -773,4 +846,96 @@ aside{
 
 #scrollUpArrow:hover {
     background-color: var(--primary-color); /* Barva při najetí myší */
+}
+
+@media(max-width: 1098px){
+    section .stripes-conteiner .ikonaHead{
+        left: 2%;
+    }
+}
+
+@media(max-width: 1088px){
+    nav{
+        align-items: center;
+        text-align: center;
+    }
+    nav > a,
+    nav > div > a
+    {
+        font-size: 2rem;
+    }
+    .serviceBarbers{
+        display: flex;
+        flex-direction: column;
+    }
+    .service > .serviceBarbers > .barberMan{
+        perspective: none;
+        background-color: #373c4f;
+    }
+    .service > .serviceBarbers > .barberMan > .barberOne,
+    .service > .serviceBarbers > .barberMan > .barberTwo {
+    transform: rotate(0deg);
+    }
+    .service > .serviceBarbers > .barberMan > .barberTwo{
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+@media(max-width: 918px){
+    section .stripes-conteiner .ikonaHead{
+        display: none;
+    }
+}
+
+@media(max-width: 758px){
+    nav > a,
+    nav > div > a
+    {
+        font-size: 1.5rem;
+        margin: 0 5px;
+    }
+    section .stripes-conteiner .sectionAboutUs > h1{
+        font-size: 1.5rem;
+    }
+    section .stripes-conteiner .sectionAboutUs > p{
+        font-size: 1.2rem;
+    }
+    .service > h2,
+    .price-section .price-container .section-title{
+        font-size: 1.5rem;
+    }
+    .service .serviceBarbers .barberMan{
+        width: 250px;
+
+    }
+    .service .serviceBarbers .barberMan .barberOne > h5,
+    .service .serviceBarbers .barberMan .barberTwo > h5{
+        font-size: 1.2rem;
+        padding-top: 20px;
+    }
+    .service .serviceBarbers .barberMan .barberOne img,
+    .service .serviceBarbers .barberMan .barberTwo img{
+        width: 50%;
+        height: 50%;
+    }
+    .price-category, .price-amount{
+        font-size: 1.2rem;
+    }
+    .price-description{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
+
+@media(max-width: 624px){
+    nav > div > a{
+        margin: 0 5px;
+    }
+}
+@media (max-width: 532px) {
+    nav > div > a{
+        display: flex;
+        margin: 0 0;
+        justify-content: flex-end;
+    }
 }

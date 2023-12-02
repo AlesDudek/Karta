@@ -2,10 +2,10 @@
     /* Home */
     
     /* welcome */
-    --primary-color:#3D973D;/*#b38add*/
+    --primary-color:#b38add;/*#b38add*/
     --seconders-color:#5AE25B;
-    --primary-background: #0F1110;/*#373c4f*/
-    --primary-text-color:#F7F8F9;
+    --primary-background: #373c4f;/*#373c4f*/
+    --primary-text-color:#fff;
     --font-size-hard: 50px;
     --font-size-medium: 25px;
     --font-size-low: 15px;
