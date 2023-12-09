@@ -51,6 +51,7 @@ nav{
     background-color:var(--primary-background);
     padding: 20px;
 }
+
 a{
     text-decoration: none;
     color: var(--primary-color);
