@@ -28,40 +28,6 @@ calendars.removeEventListener('wheel', function(e) {
     e.stopPropagation();
 });
 
-//default events array
-// const eventsArr = [
-//     {
-//         day: 16,
-//         month: 11,
-//         year: 2023,
-//         events: [
-//             {
-//                 title: "Event 1 lorem ipsum dolar sit genfa tersd dsad",
-//                 time: "10:00 AM",
-//             },
-//             {
-//                 title: "Event 2",
-//                 time: "11:00 AM",
-//             },
-//         ],
-//     },
-//     {
-//         day: 18,
-//         month: 11,
-//         year: 2023,
-//         events: [
-//             {
-//                 title: "Event 1 lorem ipsum dolar sit genfa tersd dsad",
-//                 time: "10:00 AM",
-//             },
-//             {
-//                 title: "Event 2",
-//                 time: "11:00 AM",
-//             },
-//         ],
-//     },
-// ];
-
 let eventsArr = [];
 
 //the call get
@@ -200,18 +166,22 @@ dateInput.addEventListener("input", (e)=>{
 gotoBtn.addEventListener("click", gotoDate);
 
 //function to go to entered date
-function gotoDate(){
+
+function gotoDate() {
     const dateArr = dateInput.value.split("/");
-    //some date validation
-    if(dateArr.length === 2){
-        if(dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4 ){
-            month = dateArr[0] - 1;
-            year = dateArr[1];
+    
+    if (dateArr.length === 2) {
+        const monthValue = parseInt(dateArr[0], 10);
+        const yearValue = parseInt(dateArr[1], 10);
+
+        if (!isNaN(monthValue) && !isNaN(yearValue) && monthValue > 0 && monthValue < 13) {
+            month = monthValue - 1;
+            year = yearValue;
             initCalendars();
             return;
         }
     }
-    alert("invalid date")
+    alert("Neplatné datum");
 }
 
 const jsRightClose = document.querySelector('.js-right');
@@ -246,31 +216,45 @@ addEventTitle.addEventListener('input', (e) =>{
 //time format in from and time
 
 
-addEventFrom.addEventListener('input', (e) =>{
+addEventFrom.addEventListener('input', (e) => {
     // remove anything else numbers
     addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, "");
-    if( addEventFrom.value.length === 2){
+    if (addEventFrom.value.length === 2) {
         addEventFrom.value += ":";
     }
-    //dont let user enter more than 5 chars
-    if( addEventFrom.value.length > 5){
+    // dont let the user enter more than 5 chars
+    if (addEventFrom.value.length > 5) {
         addEventFrom.value = addEventFrom.value.slice(0, 5);
+    }
+
+    // if backspace pressed
+    if (e.inputType === "deleteContentBackward") {
+        if (addEventFrom.value.length === 3) {
+            addEventFrom.value = addEventFrom.value.slice(0, 2);
+        }
+    }
+
+});
+
+// Přesunout timeFromArr a timeToArr sem, aby byly dostupné v celém rozsahu kódu
+let timeFromArr = [];
+let timeToArr = [];
+
+addEventTo.addEventListener('input', (e) => {
+    // Odebrání všeho kromě čísel a mezer
+    addEventTo.value = addEventTo.value.replace(/[^0-9 ]/g, "");
+
+    // Pokud délka je 3 nebo 7, přidejte mezeru
+    if (addEventTo.value.length === 3 || addEventTo.value.length === 7) {
+        addEventTo.value += " ";
+    }
+
+    // Nepovolte uživateli zadávat více než 13 znaků
+    if (addEventTo.value.length > 11) {
+        addEventTo.value = addEventTo.value.slice(0, 11);
     }
 });
 
-/**
- * *  Musim pak predelat na telefon */
-addEventTo.addEventListener('input', (e) =>{
-    // remove anything else numbers
-    addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
-    if( addEventTo.value.length === 2){
-        addEventTo.value += ":";
-    }
-    //dont let user enter more than 5 chars
-    if( addEventTo.value.length > 5){
-        addEventTo.value = addEventTo.value.slice(0, 5);
-    }
-});
 
 //lets create function to
 function addListner(){
@@ -345,18 +329,20 @@ function updateEvents(date){
         //get events of active day only
         if( date === event.day && month + 1 === event.month && year === event.year){
             // then show event on document
-            event.events.forEach((event)=>{
+            event.events.forEach((innerEvent)=>{
                 events += `
                 <div class="event">
                     <div class="title">
-                        <i class="fas fa-circle></i>
-                        <h3 class="event-title">${event.title}</h3>
+                        <i class="fas fa-circle"></i>
+                        <h3 class="event-title">${innerEvent.title}</h3>
                     </div>
                     <div class="event-time">
-                        <span class="event-time">${event.time}</span>
+                        <span class="event-time">${innerEvent.time}</span>
                     </div>
-                </div>
-                `;
+                    <div class="event-phone">
+                        <span class="event-phone">${innerEvent.phoneNumber}</span>
+                    </div>
+                </div>`;
             });
         }
     });
@@ -384,23 +370,26 @@ addEventSubmit.addEventListener("click", ()=>{
         return;
     }
     const timeFromArr = eventTimeFrom.split(":");
-    const timeToArr = eventTimeTo.split(":");
+    const timeToArr = eventTimeTo.split(/[ ]+/);
 
     if (
         timeFromArr.length !== 2 ||
         timeToArr.length !== 2 ||
-        timeFromArr[0] > 23 ||
-        timeFromArr[1] > 59||
-        timeToArr[0] >23 ||
-        timeToArr[1] > 59){
-            alert("Invalid Time Fornat");
+        parseInt(timeFromArr[0], 10) > 23 ||
+        parseInt(timeFromArr[1]) > 59 ||
+        parseInt(timeToArr[0], 10) > 23 ||
+        parseInt(timeToArr[1]) > 59
+    ) {
+        //alert("Neplatný formát času");
     }
+
     const timeFrom = convertTime(eventTimeFrom);
-    const timeTo = convertTime(eventTimeTo);
+    //const timeTo = convertTime(eventTimeTo);
 
     const newEvent = {
         title: eventTitle,
-        time: timeFrom + " - " + timeTo,
+        time: timeFrom,
+        phoneNumber: addEventTo.value,
     };
 
     let eventAdded = false;
@@ -443,11 +432,11 @@ addEventSubmit.addEventListener("click", ()=>{
 
 });
 
-function convertTime(time){
+function convertTime(time) {
     let timeArr = time.split(":");
-    let timeHour = timeArr[0];
+    let timeHour = parseInt(timeArr[0], 10);
     let timeMin = timeArr[1];
-    let timeFormat = timeHour >= 12 ? "PM":"AM";
+    let timeFormat = timeHour >= 12 ? "PM" : "AM";
     timeHour = timeHour % 12 || 12;
     time = timeHour + ":" + timeMin + " " + timeFormat;
     return time;
@@ -456,7 +445,7 @@ function convertTime(time){
 //lets create a function to remove events on click
 eventsContainer.addEventListener("click", (e)=>{
     
-    if(e.target.classList.contains("event")){
+    if(e.target.classList.contains(".event")){
         //tady je problem
         const eventTitle = e.target.children[0].children[1].innerHTML;
         console.log(eventTitle);
@@ -490,7 +479,7 @@ function saveEvents(){
 }
 
 function getEvents(){
-    if (localStorage.getItem("event" === null)){
+    if (localStorage.getItem("events") === null){
         return;
     }
     eventsArr.push( ...JSON.parse(localStorage.getItem("events")));
